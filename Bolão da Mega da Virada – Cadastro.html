@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Bolão da Mega da Virada 2026/2027 – Cadastro</title>
+    <style>
+      :root {
+        --bg: #f3f8ef;
+        --card: #fff;
+        --text: #12301a;
+        --muted: #5b7060;
+        --green: #0f7a2e;
+        --gold: #f5c518;
+        --line: #d7e5d3;
+        --red: #c0392b;
+        --ok: #e3f6e7;
+        --pend: #fff4d6;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0b1f10;
+          --card: #12301a;
+          --text: #eef7ea;
+          --muted: #9bb5a0;
+          --line: #24472d;
+          --ok: #16452a;
+          --pend: #4a3f12;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0b1f10;
+        --card: #12301a;
+        --text: #eef7ea;
+        --muted: #9bb5a0;
+        --line: #24472d;
+        --ok: #16452a;
+        --pend: #4a3f12;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      }
+      header {
+        background: linear-gradient(135deg, #0b5a20, #12923a);
+        color: #fff;
+        padding: 22px 16px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      header h1 span {
+        color: var(--gold);
+      }
+      header p {
+        margin: 6px 0 0;
+        opacity: 0.9;
+        font-size: 0.95rem;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .stat {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+      }
+      .stat b {
+        display: block;
+        font-size: 1.4rem;
+      }
+      .stat small {
+        color: var(--muted);
+      }
+      .stat.ok b {
+        color: var(--green);
+      }
+      .stat.pend b {
+        color: #b9860b;
+      }
+      h2 {
+        margin: 0 0 12px;
+        font-size: 1.1rem;
+      }
+      label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 10px 0 4px;
+      }
+      input[type="text"],
+      input[type="tel"],
+      input[type="number"],
+      input[type="search"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        font-size: 1rem;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+      }
+      .row > div {
+        flex: 1;
+      }
+      .chk {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 14px 0;
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .chk input {
+        width: 22px;
+        height: 22px;
+        accent-color: var(--green);
+      }
+      button {
+        font: inherit;
+        cursor: pointer;
+        border: 0;
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-weight: 700;
+      }
+      .primary {
+        background: var(--gold);
+        color: #3a2e00;
+        width: 100%;
+        font-size: 1.05rem;
+      }
+      .ghost {
+        background: transparent;
+        border: 1px solid var(--line);
+        color: var(--text);
+        padding: 8px 12px;
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+        margin-top: 10px;
+      }
+      .item.pago {
+        background: var(--ok);
+      }
+      .item.pendente {
+        background: var(--pend);
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+      .nome {
+        font-weight: 700;
+        font-size: 1.05rem;
+        word-break: break-word;
+      }
+      .tag {
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 99px;
+        white-space: nowrap;
+      }
+      .pago .tag {
+        background: var(--green);
+        color: #fff;
+      }
+      .pendente .tag {
+        background: var(--gold);
+        color: #3a2e00;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      .acts {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .acts .del {
+        color: var(--red);
+        border-color: var(--red);
+      }
+      .empty {
+        text-align: center;
+        color: var(--muted);
+        padding: 20px 0;
+      }
+      .tools {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        margin: 10px 0;
+      }
+      .filters button {
+        flex: 1;
+        padding: 8px;
+        font-size: 0.85rem;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        color: var(--text);
+      }
+      .filters button.on {
+        background: var(--green);
+        color: #fff;
+        border-color: var(--green);
+      }
+      .cad {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 12px 14px;
+      }
+      .cad h2 {
+        font-size: 1rem;
+        margin: 0 0 2px;
+      }
+      .cad label {
+        font-size: 0.72rem;
+        margin: 6px 0 2px;
+      }
+      .cad input[type="text"],
+      .cad input[type="tel"],
+      .cad input[type="number"] {
+        padding: 8px 10px;
+        font-size: 0.95rem;
+        border-radius: 8px;
+      }
+      .cad .row {
+        gap: 8px;
+      }
+      .cad .row > div:first-child {
+        flex: 1.7;
+      }
+      .cad .bot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .cad .chk {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+      .cad .chk input {
+        width: 18px;
+        height: 18px;
+      }
+      .cad .primary {
+        width: auto;
+        padding: 9px 18px;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🍀 Bolão da <span>Mega da Virada</span></h1>
+      <p>Cadastro de participantes e controle de pagamento</p>
+    </header>
+    <main>
+      <section class="stats" id="stats"></section>
+
+      <section class="card cad" style="margin-top: 16px">
+        <h2 id="formTitle">Novo participante</h2>
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          placeholder="Nome do participante"
+          autocomplete="off"
+        />
+        <div class="row">
+          <div>
+            <label for="tel">Telefone</label
+            ><input type="tel" id="tel" placeholder="(19) 99999-9999" />
+          </div>
+          <div>
+            <label for="valor">Valor (R$)</label
+            ><input
+              type="number"
+              id="valor"
+              value="60"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+            />
+          </div>
+        </div>
+        <input type="file" id="compIn" accept="image/*" style="display: none" />
+        <div
+          id="lb"
+          style="
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 99;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+          "
+        >
+          <img
+            id="lbImg"
+            alt="Comprovante"
+            style="max-width: 100%; max-height: 100%; border-radius: 8px"
+          />
+        </div>
+        <div class="bot">
+          <label class="chk"
+            ><input type="checkbox" id="pago" /> Já pagou</label
+          >
+          <button class="primary" id="salvar">Cadastrar</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Participantes</h2>
+        <input
+          type="search"
+          id="busca"
+          placeholder="Buscar por nome ou telefone"
+        />
+        <div class="filters">
+          <button data-f="todos" class="on">Todos</button>
+          <button data-f="pendente">Faltam pagar</button>
+          <button data-f="pago">Pagos</button>
+        </div>
+        <div id="lista"></div>
+        <div class="tools">
+          <button
+            class="primary"
+            id="excel"
+            style="width: 100%; margin-bottom: 4px"
+          >
+            ⬇ Baixar planilha Excel
+          </button>
+          <button class="ghost" id="copiar">Copiar lista</button>
+          <button class="ghost" id="importar" style="display: none">
+            Importar dados deste aparelho
+          </button>
+          <button
+            class="ghost del"
+            id="limpar"
+            style="color: var(--red); border-color: var(--red)"
+          >
+            Apagar tudo
+          </button>
+        </div>
+        <p class="meta">
+          O botão amarelo gera a planilha Excel com os dados que estão no site
+          agora. Baixe de novo sempre que quiser uma versão atualizada.
+        </p>
+        <p class="meta" id="aviso">Carregando…</p>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+    <script>
+      (function () {
+        var KEY = "bolao-mega-virada-v1";
+        var dados = [],
+          filtro = "todos",
+          editId = null;
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+
+        var col = null;
+        function lerLS() {
+          try {
+            var r = localStorage.getItem(KEY);
+            if (r) {
+              var p = JSON.parse(r);
+              if (Array.isArray(p)) return p;
+            }
+          } catch (e) {}
+          return [];
+        }
+        function salvarLS() {
+          if (col) return;
+          try {
+            localStorage.setItem(KEY, JSON.stringify(dados));
+          } catch (e) {
+            $("aviso").textContent =
+              "Não foi possível salvar neste navegador. Use “Copiar lista” para não perder os dados.";
+          }
+        }
+        function gravar(d) {
+          if (!col) {
+            salvarLS();
+            render();
+            return;
+          }
+          var o = {
+            nome: d.nome,
+            tel: d.tel || "",
+            valor: Number(d.valor) || 0,
+            pago: !!d.pago,
+            comp: d.comp || "",
+            criado: d.criado || Date.now(),
+          };
+          col.doc(d.id).set(o).catch(erro);
+        }
+        function apagar(id) {
+          if (!col) {
+            dados = dados.filter(function (x) {
+              return x.id !== id;
+            });
+            salvarLS();
+            render();
+            return;
+          }
+          col.doc(id).delete().catch(erro);
+        }
+        function erro(e) {
+          $("aviso").textContent =
+            e && e.code === "permission_denied"
+              ? "Você só pode visualizar. Peça ao organizador acesso de edição."
+              : "Não foi possível salvar agora. Tente de novo.";
+        }
+        async function iniciar() {
+          var db = null;
+          try {
+            db = await claude.use("db");
+          } catch (e) {}
+          if (!db) {
+            dados = lerLS();
+            render();
+            $("aviso").textContent =
+              "Os dados ficam salvos só neste aparelho. Use “Copiar lista” para guardar um backup.";
+            return;
+          }
+          col = db.collection("participantes");
+          $("aviso").textContent =
+            "Lista salva online: quem abrir o link vê os mesmos dados, e as mudanças aparecem na hora.";
+          col.onSnapshot(
+            function (snap) {
+              dados = snap.docs
+                .map(function (x) {
+                  var v = x.data();
+                  return {
+                    id: x.id,
+                    nome: String(v.nome || ""),
+                    tel: String(v.tel || ""),
+                    valor: Number(v.valor) || 0,
+                    pago: !!v.pago,
+                    comp: String(v.comp || ""),
+                    criado: Number(v.criado) || 0,
+                  };
+                })
+                .sort(function (a, b) {
+                  return a.criado - b.criado;
+                });
+              render();
+              var loc = lerLS();
+              $("importar").style.display =
+                loc.length && !snap.size ? "inline-block" : "none";
+            },
+            function (e) {
+              erro(e);
+            },
+          );
+        }
+        function brl(n) {
+          return (
+            "R$ " +
+            Number(n || 0)
+              .toFixed(2)
+              .replace(".", ",")
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+          );
+        }
+        function foneLimpo(t) {
+          return (t || "").replace(/\D/g, "");
+        }
+
+        function stats() {
+          var pagos = dados.filter(function (d) {
+              return d.pago;
+            }),
+            pend = dados.filter(function (d) {
+              return !d.pago;
+            });
+          var soma = function (a) {
+            return a.reduce(function (s, d) {
+              return s + Number(d.valor || 0);
+            }, 0);
+          };
+          var itens = [
+            ["", dados.length, "Participantes"],
+            ["ok", pagos.length, "Já pagaram"],
+            ["pend", pend.length, "Faltam pagar"],
+            ["ok", brl(soma(pagos)), "Arrecadado"],
+            ["pend", brl(soma(pend)), "A receber"],
+            ["", brl(soma(dados)), "Total previsto"],
+          ];
+          $("stats").innerHTML = "";
+          itens.forEach(function (i) {
+            var d = document.createElement("div");
+            d.className = "stat " + i[0];
+            var b = document.createElement("b");
+            b.textContent = i[1];
+            var s = document.createElement("small");
+            s.textContent = i[2];
+            d.appendChild(b);
+            d.appendChild(s);
+            $("stats").appendChild(d);
+          });
+        }
+
+        function lista() {
+          var q = $("busca").value.trim().toLowerCase();
+          var vis = dados.filter(function (d) {
+            if (filtro === "pago" && !d.pago) return false;
+            if (filtro === "pendente" && d.pago) return false;
+            return (
+              !q ||
+              d.nome.toLowerCase().indexOf(q) > -1 ||
+              (d.tel || "").indexOf(q) > -1
+            );
+          });
+          var box = $("lista");
+          box.innerHTML = "";
+          if (!vis.length) {
+            var e = document.createElement("div");
+            e.className = "empty";
+            e.textContent = dados.length
+              ? "Nenhum participante encontrado."
+              : "Nenhum participante cadastrado ainda.";
+            box.appendChild(e);
+            return;
+          }
+          vis.forEach(function (d) {
+            var it = document.createElement("div");
+            it.className = "item " + (d.pago ? "pago" : "pendente");
+            var top = document.createElement("div");
+            top.className = "top";
+            var n = document.createElement("span");
+            n.className = "nome";
+            n.textContent = d.nome;
+            var t = document.createElement("span");
+            t.className = "tag";
+            t.textContent = d.pago ? "PAGO ✓" : "PENDENTE";
+            top.appendChild(n);
+            top.appendChild(t);
+            var m = document.createElement("div");
+            m.className = "meta";
+            m.textContent = (d.tel ? d.tel + " · " : "") + brl(d.valor);
+            var a = document.createElement("div");
+            a.className = "acts";
+            function btn(txt, cls, fn) {
+              var b = document.createElement("button");
+              b.className = "ghost " + (cls || "");
+              b.textContent = txt;
+              b.onclick = fn;
+              a.appendChild(b);
+            }
+            btn(
+              d.pago ? "Marcar como pendente" : "Marcar como pago",
+              "",
+              function () {
+                d.pago = !d.pago;
+                gravar(d);
+                if (!col) render();
+              },
+            );
+            btn("Editar", "", function () {
+              editar(d.id);
+            });
+            btn(
+              d.comp ? "Trocar comprovante" : "Anexar comprovante",
+              "",
+              function () {
+                compId = d.id;
+                $("compIn").click();
+              },
+            );
+            if (d.comp)
+              btn("Remover comprovante", "del", function () {
+                if (confirm("Remover o comprovante de " + d.nome + "?")) {
+                  d.comp = "";
+                  gravar(d);
+                  if (!col) render();
+                }
+              });
+            if (foneLimpo(d.tel).length >= 10) {
+              btn("WhatsApp", "", function () {
+                var f = foneLimpo(d.tel);
+                if (f.length <= 11) f = "55" + f;
+                window.open("https://wa.me/" + f, "_blank", "noopener");
+              });
+            }
+            btn("Excluir", "del", function () {
+              if (confirm("Excluir " + d.nome + "?")) apagar(d.id);
+            });
+            it.appendChild(top);
+            it.appendChild(m);
+            if (d.comp) {
+              var im = document.createElement("img");
+              im.src = d.comp;
+              im.alt = "Comprovante de " + d.nome;
+              im.title = "Toque para ampliar";
+              im.style.cssText =
+                "height:40px;width:40px;object-fit:cover;border-radius:6px;border:1px solid var(--line);align-self:flex-start;cursor:zoom-in";
+              im.onclick = function () {
+                $("lbImg").src = d.comp;
+                $("lb").style.display = "flex";
+              };
+              it.appendChild(im);
+            }
+            it.appendChild(a);
+            box.appendChild(it);
+          });
+        }
+
+        function render() {
+          stats();
+          lista();
+        }
+
+        function limparForm() {
+          editId = null;
+          $("nome").value = "";
+          $("tel").value = "";
+          $("valor").value = "60";
+          $("pago").checked = false;
+          $("salvar").textContent = "Cadastrar";
+          $("formTitle").textContent = "Novo participante";
+        }
+        function editar(id) {
+          var d = dados.filter(function (x) {
+            return x.id === id;
+          })[0];
+          if (!d) return;
+          editId = id;
+          $("nome").value = d.nome;
+          $("tel").value = d.tel || "";
+          $("valor").value = d.valor;
+          $("pago").checked = !!d.pago;
+          $("salvar").textContent = "Salvar alterações";
+          $("formTitle").textContent = "Editar participante";
+          $("nome").focus();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        $("salvar").onclick = function () {
+          var nome = $("nome").value.trim();
+          if (!nome) {
+            alert("Digite o nome do participante.");
+            $("nome").focus();
+            return;
+          }
+          var obj = {
+            nome: nome,
+            tel: $("tel").value.trim(),
+            valor: parseFloat($("valor").value) || 0,
+            pago: $("pago").checked,
+          };
+          if (editId) {
+            var ex =
+              dados.filter(function (d) {
+                return d.id === editId;
+              })[0] || {};
+            obj.id = editId;
+            obj.criado = ex.criado || Date.now();
+            obj.comp = ex.comp || "";
+            if (!col)
+              dados.forEach(function (d) {
+                if (d.id === editId) {
+                  d.nome = obj.nome;
+                  d.tel = obj.tel;
+                  d.valor = obj.valor;
+                  d.pago = obj.pago;
+                }
+              });
+          } else {
+            obj.id = Date.now() + Math.random().toString(36).slice(2, 6);
+            obj.criado = Date.now();
+            if (!col) dados.push(obj);
+          }
+          gravar(obj);
+          limparForm();
+          if (!col) render();
+        };
+        $("busca").oninput = lista;
+        document.querySelectorAll(".filters button").forEach(function (b) {
+          b.onclick = function () {
+            filtro = b.getAttribute("data-f");
+            document.querySelectorAll(".filters button").forEach(function (x) {
+              x.classList.toggle("on", x === b);
+            });
+            lista();
+          };
+        });
+        $("copiar").onclick = function () {
+          var txt =
+            "BOLÃO MEGA DA VIRADA\n" +
+            dados
+              .map(function (d, i) {
+                return (
+                  i +
+                  1 +
+                  ". " +
+                  d.nome +
+                  (d.tel ? " (" + d.tel + ")" : "") +
+                  " - " +
+                  brl(d.valor) +
+                  " - " +
+                  (d.pago ? "PAGO" : "PENDENTE")
+                );
+              })
+              .join("\n");
+          function ok() {
+            $("copiar").textContent = "Copiado!";
+            setTimeout(function () {
+              $("copiar").textContent = "Copiar lista";
+            }, 1500);
+          }
+          try {
+            navigator.clipboard.writeText(txt).then(ok, function () {
+              prompt("Copie a lista:", txt);
+            });
+          } catch (e) {
+            prompt("Copie a lista:", txt);
+          }
+        };
+        $("limpar").onclick = function () {
+          if (
+            dados.length &&
+            confirm(
+              "Apagar TODOS os participantes? Isso não pode ser desfeito.",
+            )
+          ) {
+            var ids = dados.map(function (d) {
+              return d.id;
+            });
+            if (col) {
+              ids.forEach(apagar);
+            } else {
+              dados = [];
+              salvarLS();
+              render();
+            }
+            limparForm();
+          }
+        };
+
+        async function baixarExcel() {
+          var dl = null;
+          try {
+            dl = await claude.use("downloads");
+          } catch (e) {}
+          if (!dl || !window.ExcelJS) {
+            alert("Não foi possível gerar o Excel neste momento.");
+            return;
+          }
+          var A = "Arial",
+            GR = "FF0B5A20",
+            GD = "FFF5C518",
+            DK = "FF0B3D14",
+            CG = "FF16A340";
+          var fl = function (c) {
+            return { type: "pattern", pattern: "solid", fgColor: { argb: c } };
+          };
+          var wb = new ExcelJS.Workbook();
+          var ws = wb.addWorksheet("Bolão", {
+            views: [{ showGridLines: false, state: "frozen", ySplit: 6 }],
+          });
+          [8, 34, 20, 16, 14, 15].forEach(function (w, i) {
+            ws.getColumn(i + 1).width = w;
+          });
+          var F = 7,
+            L = Math.max(dados.length + F - 1, F + 99);
+          ws.mergeCells("A1:F1");
+          ws.mergeCells("A2:F2");
+          var t = ws.getCell("A1");
+          t.value = "BOLÃO DA MEGA DA VIRADA";
+          t.font = { name: A, size: 20, bold: true, color: { argb: GD } };
+          t.alignment = { horizontal: "center", vertical: "middle" };
+          ws.getRow(1).height = 40;
+          var st = ws.getCell("A2");
+          st.value = "Controle de participantes e pagamentos";
+          st.font = {
+            name: A,
+            size: 11,
+            italic: true,
+            color: { argb: "FFFFFFFF" },
+          };
+          st.alignment = { horizontal: "center", vertical: "middle" };
+          ws.getRow(2).height = 22;
+          for (var c = 1; c <= 6; c++) {
+            ws.getCell(1, c).fill = fl(GR);
+            ws.getCell(2, c).fill = fl(GR);
+            ws.getCell(3, c).fill = fl(GR);
+            ws.getCell(4, c).fill = fl(GR);
+            ws.getCell(5, c).fill = fl(GR);
+          }
+          var pagos = dados.filter(function (d) {
+              return d.pago;
+            }),
+            sP = pagos.reduce(function (a, d) {
+              return a + Number(d.valor || 0);
+            }, 0),
+            sT = dados.reduce(function (a, d) {
+              return a + Number(d.valor || 0);
+            }, 0);
+          var rg = function (col) {
+            return col + F + ":" + col + L;
+          };
+          var cards = [
+            [
+              "B",
+              "JÁ PAGARAM",
+              "COUNTIFS(" + rg("B") + ',"<>",' + rg("E") + ',"Sim")',
+              pagos.length,
+              "0",
+            ],
+            [
+              "C",
+              "FALTAM PAGAR",
+              "COUNTA(" + rg("B") + ")-B4",
+              dados.length - pagos.length,
+              "0",
+            ],
+            [
+              "D",
+              "ARRECADADO",
+              "SUMIFS(" + rg("D") + "," + rg("E") + ',"Sim")',
+              sP,
+              '"R$" #,##0.00',
+            ],
+            [
+              "E",
+              "A RECEBER",
+              "SUM(" + rg("D") + ")-D4",
+              sT - sP,
+              '"R$" #,##0.00',
+            ],
+          ];
+          cards.forEach(function (k) {
+            var lb = ws.getCell(k[0] + "3");
+            lb.value = k[1];
+            lb.font = { name: A, size: 9, bold: true, color: { argb: DK } };
+            lb.fill = fl(GD);
+            lb.alignment = { horizontal: "center", vertical: "middle" };
+            var v = ws.getCell(k[0] + "4");
+            v.value = { formula: k[2], result: k[3] };
+            v.numFmt = k[4];
+            v.font = {
+              name: A,
+              size: 16,
+              bold: true,
+              color: { argb: "FFFFFFFF" },
+            };
+            v.fill = fl(CG);
+            v.alignment = { horizontal: "center", vertical: "middle" };
+          });
+          ws.getRow(3).height = 20;
+          ws.getRow(4).height = 34;
+          ws.getRow(5).height = 8;
+          ["Nº", "Nome", "Telefone", "Valor", "Pagou?", "Comprovante"].forEach(
+            function (h, i) {
+              var c = ws.getCell(6, i + 1);
+              c.value = h;
+              c.font = { name: A, size: 12, bold: true, color: { argb: DK } };
+              c.fill = fl(GD);
+              c.alignment = {
+                horizontal: i === 1 ? "left" : "center",
+                vertical: "middle",
+                indent: i === 1 ? 1 : 0,
+              };
+            },
+          );
+          ws.getRow(6).height = 26;
+          var thumbs = {};
+          for (var ti = 0; ti < dados.length; ti++) {
+            if (dados[ti].comp) {
+              try {
+                thumbs[dados[ti].id] = await reduzir(dados[ti].comp, 90, 0.6);
+              } catch (e) {}
+            }
+          }
+          var thin = { bottom: { style: "thin", color: { argb: "FFE3E8DF" } } };
+          for (var r = F; r <= L; r++) {
+            var d = dados[r - F],
+              row = ws.getRow(r);
+            row.height = 22;
+            row.getCell(1).value = {
+              formula: "IF(B" + r + '="","",ROW()-' + (F - 1) + ")",
+              result: d ? r - F + 1 : "",
+            };
+            if (d) {
+              row.getCell(2).value = d.nome;
+              row.getCell(3).value = d.tel || "";
+              row.getCell(4).value = Number(d.valor) || 0;
+              row.getCell(5).value = d.pago ? "Sim" : "Não";
+            }
+            var th = d && thumbs[d.id];
+            if (th) {
+              row.height = Math.max(22, Math.round(th.h * 0.75) + 8);
+              var imgId = wb.addImage({ base64: th.url, extension: "jpeg" });
+              ws.addImage(imgId, {
+                tl: { col: 5.08, row: r - 1 + 0.06 },
+                ext: { width: th.w, height: th.h },
+              });
+            }
+            for (var c2 = 1; c2 <= 6; c2++) {
+              var cell = row.getCell(c2);
+              cell.border = thin;
+              cell.font = {
+                name: A,
+                size: 11,
+                color: {
+                  argb:
+                    c2 === 1 ? "FF888888" : c2 === 4 ? "FF000000" : "FF0000FF",
+                },
+                bold: c2 === 5,
+              };
+              cell.alignment = {
+                horizontal: c2 === 2 ? "left" : "center",
+                vertical: "middle",
+                indent: c2 === 2 ? 1 : 0,
+              };
+            }
+            row.getCell(4).numFmt = '"R$" #,##0.00';
+          }
+          ws.dataValidations.add("E" + F + ":E" + L, {
+            type: "list",
+            allowBlank: true,
+            formulae: ['"Sim,Não"'],
+          });
+          var cf = function (txt, bg, fg) {
+            return {
+              type: "cellIs",
+              operator: "equal",
+              formulae: ['"' + txt + '"'],
+              style: {
+                fill: {
+                  type: "pattern",
+                  pattern: "solid",
+                  bgColor: { argb: bg },
+                },
+                font: { color: { argb: fg }, bold: true },
+              },
+            };
+          };
+          ws.addConditionalFormatting({
+            ref: "E" + F + ":E" + L,
+            rules: [cf("Sim", CG, "FFFFFFFF"), cf("Não", GD, DK)],
+          });
+          ws.pageSetup = {
+            orientation: "portrait",
+            paperSize: 9,
+            fitToPage: true,
+            fitToWidth: 1,
+            fitToHeight: 0,
+          };
+          var buf = await wb.xlsx.writeBuffer();
+          try {
+            await dl.save({ filename: "bolao-mega-da-virada.xlsx", data: buf });
+          } catch (e) {
+            if (!e || e.code !== "declined")
+              alert("Não foi possível salvar o arquivo.");
+          }
+        }
+
+        var compId = null;
+        function reduzir(src, max, q) {
+          return new Promise(function (res, rej) {
+            var img = new Image();
+            img.onload = function () {
+              var k = Math.min(1, max / Math.max(img.width, img.height));
+              var w = Math.max(1, Math.round(img.width * k)),
+                h = Math.max(1, Math.round(img.height * k));
+              var cv = document.createElement("canvas");
+              cv.width = w;
+              cv.height = h;
+              var cx = cv.getContext("2d");
+              cx.fillStyle = "#fff";
+              cx.fillRect(0, 0, w, h);
+              cx.drawImage(img, 0, 0, w, h);
+              res({ url: cv.toDataURL("image/jpeg", q), w: w, h: h });
+            };
+            img.onerror = function () {
+              rej(new Error("img"));
+            };
+            img.src = src;
+          });
+        }
+        $("lb").onclick = function () {
+          $("lb").style.display = "none";
+          $("lbImg").src = "";
+        };
+        $("compIn").onchange = function () {
+          var f = $("compIn").files[0];
+          $("compIn").value = "";
+          if (!f || !compId) return;
+          var id = compId,
+            rd = new FileReader();
+          rd.onload = async function () {
+            try {
+              var q = 0.7,
+                max = 800,
+                r = await reduzir(String(rd.result), max, q);
+              while (r.url.length > 120000 && q > 0.35) {
+                q -= 0.1;
+                r = await reduzir(String(rd.result), max, q);
+              }
+              while (r.url.length > 120000 && max > 400) {
+                max -= 150;
+                r = await reduzir(String(rd.result), max, 0.5);
+              }
+              var d = dados.filter(function (x) {
+                return x.id === id;
+              })[0];
+              if (!d) return;
+              d.comp = r.url;
+              gravar(d);
+              if (!col) render();
+              $("aviso").textContent = "Comprovante anexado a " + d.nome + ".";
+            } catch (e) {
+              $("aviso").textContent =
+                "Não foi possível ler essa imagem. Tente outra foto ou print.";
+            }
+          };
+          rd.readAsDataURL(f);
+        };
+        $("excel").onclick = baixarExcel;
+        $("importar").onclick = function () {
+          var loc = lerLS();
+          if (!col || !loc.length) return;
+          loc.forEach(function (d, i) {
+            d.criado = d.criado || Date.now() + i;
+            gravar(d);
+          });
+          $("importar").style.display = "none";
+        };
+        render();
+        iniciar();
+      })();
+    </script>
+  </body>
+</html>
